@@ -18,8 +18,7 @@
   by Tom Igoe
 
   modified 04/02/2021 by Steven Kelly
-
-  
+  modified 08/02/2021 by Steven Kelly
 
   This example code is in the public domain.
 
@@ -28,14 +27,14 @@
 
 // constants won't change. They're used here to set pin numbers:
 const int buttonPin = 2;     // the number of the pushbutton pin
-const int ledPin =  13;      // the number of the LED pin
+const int LEDPin =  13;      // the number of the LED pin
 
 // variables will change:
 int buttonState = 0;         // variable for reading the pushbutton status
 
 void setup() {
   // initialize the LED pin as an output:
-  pinMode(ledPin, OUTPUT);
+  pinMode(LEDPin, OUTPUT);
   // initialize the pushbutton pin as an input:
   pinMode(buttonPin, INPUT);
 }
@@ -45,11 +44,15 @@ void loop() {
   buttonState = digitalRead(buttonPin);
 
   // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
-  if (buttonState == HIGH) {
-    // turn LED on:
-    digitalWrite(ledPin, HIGH);
+  if (buttonState == HIGH) 
+  {
+    //Blink the Led
+    digitalWrite(LEDPin, HIGH);       // turn the LED on (HIGH is the voltage level)
+    delay(1000);                      // wait for a second
+    digitalWrite(LEDPin, LOW);        // turn the LED off by making the voltage LOW
+    delay(1000);                       // wait for a second
   } else {
     // turn LED off:
-    digitalWrite(ledPin, LOW);
+    digitalWrite(LEDPin, LOW);
   }
 }
